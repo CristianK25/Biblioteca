@@ -1,12 +1,15 @@
 
 package vista;
 
+import javax.swing.JFrame;
+
 
 public class VentanaCliente extends javax.swing.JFrame {
 
     /** Creates new form VentanaCliente */
     public VentanaCliente() {
         initComponents();
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     /** This method is called from within the constructor to
