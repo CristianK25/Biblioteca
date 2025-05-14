@@ -24,6 +24,12 @@ public class Usuario {
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nombre=" + nombre + ", contrase\u00f1a=" 
+                + contraseña + ", tipoUsuario=" + tipoUsuario + '}';
+    }
     
     
 }

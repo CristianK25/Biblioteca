@@ -28,4 +28,13 @@ public class Libro {
     public int getNumero() {
         return numero;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" + "titulo=" + titulo + ", clasificacion=" 
+                + clasificacion + ", numero=" + numero 
+                + ", consiste_en=" + consiste_en 
+                + ", creador=" + creador + '}';
+    }
+    
 }

@@ -43,4 +43,12 @@ public class Prestamo {
     public ArrayList<Libro> getPrestado() {
         return prestado;
     }
+
+    @Override
+    public String toString() {
+        return "Prestamo{" + "numero=" + numero + ", dia_prestamo=" 
+                + dia_prestamo + ", dia_devolucion=" + dia_devolucion 
+                + ", socio=" + socio + ", prestado=" + prestado + '}';
+    }
+    
 }

@@ -10,7 +10,7 @@ import util.Log;
 
 public class ConexionBD {
     private static Connection conexion;
-    private static final String URL = "jdbc:h2:./Base de datos/db";
+    private static final String URL = "jdbc:h2:./Base_de_datos/db";
     private static final String USER = "sa";
     private static final String PASS = "";
     
@@ -37,7 +37,7 @@ public class ConexionBD {
     }
     
     private static void crearTabla(String sql, String nombreTabla) {
-        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
+        try (PreparedStatement ps = obtenerConexion().prepareStatement(sql)) {
             ps.executeUpdate();
         } catch (SQLException e) {
             Log.escribirLog("No se pudo crear la tabla " + nombreTabla);
@@ -53,7 +53,7 @@ public class ConexionBD {
                 + "PRIMARY KEY (idUsuario)"
                 + ");";
         String tbLibro = "CREATE TABLE IF NOT EXISTS Libro("
-                + "numero INT AUTO_INCREMENT,"
+                + "numero INT NOT NULL,"
                 + "titulo VARCHAR(50) NOT NULL,"
                 + "clasificacion VARCHAR(50) NOT NULL,"
                 + "PRIMARY KEY(numero)"

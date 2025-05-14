@@ -1,1 +1,7 @@
 [2025-05-13 08:56] Primer log
+[2025-05-14 09:51] No se pudo obtener la conexion a la base de datos
+[2025-05-14 10:29] No se pudo obtener la conexion a la base de datos
+[2025-05-14 10:34] No se pudo obtener la conexion a la base de datos
+[2025-05-14 10:34] No se pudo obtener la conexion a la base de datos
+[2025-05-14 10:37] No se pudo insertar Autor: Libro{titulo=harry potter y la paja eterna, clasificacion=Porno, numero=69, consiste_en=COMEDIA, creador=Autor{pseudonimo=mipadre, librosEscritos=[]}}
+[2025-05-14 10:43] No se pudo insertar Autor: Libro{titulo=harry potter y la paja eterna, clasificacion=Porno, numero=69, consiste_en=COMEDIA, creador=Autor{pseudonimo=mipadre, librosEscritos=[]}}
