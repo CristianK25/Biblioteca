@@ -2,6 +2,10 @@
 package modelo;
 
 
-public class Tema {
-
+public enum Tema {
+    TERROR,
+    ACCION,
+    COMEDIA,
+    ROMANCE,
+    CIENCIA_FICCION;
 }

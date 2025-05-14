@@ -3,18 +3,13 @@
  */
 package com.example.Biblioteca;
 
-import javax.swing.SwingUtilities;
-import com.formdev.flatlaf.intellijthemes.FlatVuesionIJTheme;
-import vista.VentanaInicioSesion;
+import logica.ControladorVentanas;
+import persistencia.ConexionBD;
 
 public class App {
 
     public static void main(String[] args) {
-        FlatVuesionIJTheme.setup();
-        SwingUtilities.invokeLater(() ->{
-            VentanaInicioSesion v1 = new VentanaInicioSesion();
-            v1.setVisible(true);
-            v1.setLocationRelativeTo(null);
-        });
+        ConexionBD.inicializar();
+        ControladorVentanas.iniciar();
     }
 }
