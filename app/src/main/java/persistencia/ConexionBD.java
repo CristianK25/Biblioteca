@@ -47,20 +47,20 @@ public class ConexionBD {
     public static void inicializar(){
         String tbUsuario = "CREATE TABLE IF NOT EXISTS Usuario("
                 + "idUsuario INT AUTO_INCREMENT,"
-                + "nombre VARCHAR(50),"
-                + "contra VARCHAR(60),"
+                + "user VARCHAR(50),"
+                + "pass VARCHAR(60),"
                 + "tipoUsuario VARCHAR(20),"
                 + "PRIMARY KEY (idUsuario)"
                 + ");";
         String tbLibro = "CREATE TABLE IF NOT EXISTS Libro("
                 + "numero INT NOT NULL,"
-                + "titulo VARCHAR(50) NOT NULL,"
+                + "titulo VARCHAR(50) NOT NULL UNIQUE,"
                 + "clasificacion VARCHAR(50) NOT NULL,"
                 + "PRIMARY KEY(numero)"
                 + ");";
         String tbAutor = "CREATE TABLE IF NOT EXISTS Autor("
                 + "idAutor INT AUTO_INCREMENT,"
-                + "pseudonimo VARCHAR(50),"
+                + "nombre VARCHAR(50),"
                 + "PRIMARY KEY (idAutor)"
                 + ");";
         String tbPrestamo = "CREATE TABLE IF NOT EXISTS Prestamo("

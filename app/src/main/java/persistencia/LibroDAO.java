@@ -1,8 +1,8 @@
 
 package persistencia;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.Libro;
 import util.Log;
@@ -18,6 +18,20 @@ public class LibroDAO {
             ps.setString(3,libro.getClasificacion());
         }catch(SQLException e){
             Log.escribirLog("No se pudo insertar Libro: " + libro.toString());
+        }
+    }
+    
+    public static void buscarLibro(Libro libro){
+        String sql = "SELECT * FROM Libro WHERE nombre = ?";
+        try(PreparedStatement ps = ConexionBD.obtenerConexion().prepareStatement(sql)){
+            ps.setString(1, libro.getTitulo());
+            try(ResultSet rs = ps.executeQuery()){
+                while(rs.next()){
+                    
+                }
+            }
+        }catch(SQLException e){
+            
         }
     }
 }

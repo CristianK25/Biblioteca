@@ -23,4 +23,15 @@ public class AutorDAO {
             Log.escribirLog("No se pudo insertar Autor: " + autor.toString());
         }
     }
+    
+    public void buscarAutor(Autor autor){
+        String sql = "SELECT * FROM Autor WHERE nombre = ?";
+        try(PreparedStatement ps = conexion.prepareStatement(sql)){
+            
+        }catch(SQLException e){
+            Log.escribirLog("No se pudo encontrar el autor : " + autor.toString()+
+                    "\n" + e.getMessage());
+            
+        }
+    }
 }
