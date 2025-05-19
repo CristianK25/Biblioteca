@@ -62,6 +62,11 @@ public class VentanaInicioSesion extends javax.swing.JFrame {
 
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
 
         pswContrasenia.setText("jPasswordField1");
 
@@ -125,6 +130,10 @@ public class VentanaInicioSesion extends javax.swing.JFrame {
         SwingUtilities.updateComponentTreeUI(cliente);
         cliente.setVisible(true);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
 
 

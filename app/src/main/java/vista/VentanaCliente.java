@@ -10,7 +10,8 @@ public class VentanaCliente extends javax.swing.JFrame {
     /** Creates new form VentanaCliente */
     public VentanaCliente() {
         initComponents();
-        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        lblTituloCliente.setOpaque(true);
         //panelBotones.setOpaque(true);
         //lblTituloCliente.setOpaque(true); // <- Esto es clave
     }
@@ -36,9 +37,16 @@ public class VentanaCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBotones.setBackground(new java.awt.Color(0, 153, 255));
+        panelBotones.setBackground(new java.awt.Color(0, 2, 28));
 
         jButton1.setText("jButton1");
+        jButton1.setFocusPainted(false);
+        jButton1.setFocusable(false);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("jButton1");
 
@@ -56,14 +64,15 @@ public class VentanaCliente extends javax.swing.JFrame {
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
                 .addGap(192, 192, 192)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        lblTituloCliente.setBackground(new java.awt.Color(204, 204, 204));
         lblTituloCliente.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTituloCliente.setText("  Usuario: ");
 
@@ -126,6 +135,10 @@ public class VentanaCliente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
 
