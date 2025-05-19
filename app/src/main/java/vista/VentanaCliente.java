@@ -11,7 +11,8 @@ public class VentanaCliente extends javax.swing.JFrame {
     public VentanaCliente() {
         initComponents();
         //setExtendedState(JFrame.MAXIMIZED_BOTH);
-        lblTituloCliente.setOpaque(true); // <- Esto es clave
+        //panelBotones.setOpaque(true);
+        //lblTituloCliente.setOpaque(true); // <- Esto es clave
     }
 
     /** This method is called from within the constructor to
@@ -24,6 +25,9 @@ public class VentanaCliente extends javax.swing.JFrame {
     private void initComponents() {
 
         panelBotones = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         lblTituloCliente = new javax.swing.JLabel();
         panelPrincipal = new javax.swing.JPanel();
         panelLibros = new javax.swing.JPanel();
@@ -32,20 +36,34 @@ public class VentanaCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBotones.setBackground(javax.swing.UIManager.getDefaults().getColor("CheckBoxMenuItem.selectionBackground"));
+        panelBotones.setBackground(new java.awt.Color(0, 153, 255));
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton1");
+
+        jButton3.setText("jButton1");
 
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 221, Short.MAX_VALUE)
+            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lblTituloCliente.setBackground(new java.awt.Color(204, 204, 204));
         lblTituloCliente.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblTituloCliente.setText("  Usuario: ");
 
@@ -59,9 +77,9 @@ public class VentanaCliente extends javax.swing.JFrame {
         panelLibrosLayout.setHorizontalGroup(
             panelLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLibrosLayout.createSequentialGroup()
-                .addGap(108, 108, 108)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1024, Short.MAX_VALUE))
+                .addContainerGap(1020, Short.MAX_VALUE))
         );
         panelLibrosLayout.setVerticalGroup(
             panelLibrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,7 +95,7 @@ public class VentanaCliente extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1363, Short.MAX_VALUE)
+            .addGap(0, 1351, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,6 +130,9 @@ public class VentanaCliente extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTituloCliente;

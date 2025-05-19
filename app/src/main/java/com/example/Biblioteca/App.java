@@ -3,17 +3,18 @@
  */
 package com.example.Biblioteca;
 
-import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDeepOceanIJTheme;
 import logica.ControladorPrincipal;
 import vista.VentanaCliente;
+import vista.VentanaInicioSesion;
 
 public class App {
 
     public static void main(String[] args) {
+        FlatMaterialDeepOceanIJTheme.setup();
         //ControladorPrincipal.iniciar();
-        //FlatArcOrangeIJTheme.setup();
-        VentanaCliente v = new VentanaCliente();
-        v.setVisible(true);
-        v.setLocationRelativeTo(null);
+        VentanaInicioSesion vl = new VentanaInicioSesion();
+        vl.setVisible(true);
+        vl.setLocationRelativeTo(null);
     }
 }
