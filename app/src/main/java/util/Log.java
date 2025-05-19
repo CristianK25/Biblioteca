@@ -13,6 +13,9 @@ public class Log {
     private static final File archivo = new File("logs.txt");
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     
+    /**
+     * Crea la el archivo.txt donde van a ir los problemas y excepciones ocurridas
+     */
     public static void crearCarpetaLog(){
         if(!archivo.exists()){
             try{
@@ -23,16 +26,22 @@ public class Log {
         }
     }
     
-    public static void escribirLog(String mensaje){
+    /**
+     * Escribe al final del archivo.txt un log
+     * @param mensaje Personalizado para cada excepcion
+     * @param mensajeExcepcion Excepcion atrapada por el catch
+     */
+    public static void escribirLog(String mensaje,String mensajeExcepcion){
         archivo.setWritable(true);
         if (!archivo.canWrite()) {
             JOptionPane.showMessageDialog(null, "No hay permisos para escribir en el log");
             return;
         }
         String fechaHora = LocalDateTime.now().format(formatter);
-        String mensajeCompleto = "[" + fechaHora + "] " + mensaje;
+        String mensajeCompleto = "[" + fechaHora + "] " + mensaje + "\n" + mensajeExcepcion;
         try(FileWriter archivoEditable = new FileWriter(archivo,true)){
             archivoEditable.append(mensajeCompleto + "\n");
+            archivoEditable.append("---------------------\n");
             archivoEditable.flush();
             archivo.setWritable(false);
         }catch(IOException e){

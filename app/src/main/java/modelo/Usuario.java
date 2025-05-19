@@ -4,12 +4,12 @@ package modelo;
 
 public class Usuario {
     private String nombre;
-    private String contraseña;
+    private String contra;
     private TipoUsuario tipoUsuario;
 
-    public Usuario(String nombre, String contraseña, TipoUsuario tipoUsuario) {
+    public Usuario(String nombre, String contrasenia, TipoUsuario tipoUsuario) {
         this.nombre = nombre;
-        this.contraseña = contraseña;
+        this.contra = contrasenia;
         this.tipoUsuario = tipoUsuario;
     }
 
@@ -18,7 +18,7 @@ public class Usuario {
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contra;
     }
 
     public TipoUsuario getTipoUsuario() {
@@ -27,8 +27,8 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "nombre=" + nombre + ", contrase\u00f1a=" 
-                + contraseña + ", tipoUsuario=" + tipoUsuario + '}';
+        return "Usuario{" + "nombre = " + nombre + ", contra = " 
+                + contra + ", tipoUsuario=" + tipoUsuario + '}';
     }
     
     

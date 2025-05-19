@@ -19,7 +19,7 @@ public class ConexionBD {
             try{
                 conexion = DriverManager.getConnection(URL, USER, PASS);
             }catch(SQLException e){
-                Log.escribirLog("No se pudo obtener la conexion a la base de datos");
+                Log.escribirLog("No se pudo obtener la conexion a la base de datos",e.getMessage());
             }
         }
         return conexion;
@@ -32,23 +32,26 @@ public class ConexionBD {
                 conexion = null;
             }
         }catch(SQLException e){
-            Log.escribirLog("No se pudo cerrar la conexion a la base de datos");
+            Log.escribirLog("No se pudo cerrar la conexion a la base de datos",e.getMessage());
         }
     }
     
     private static void crearTabla(String sql, String nombreTabla) {
-        try (PreparedStatement ps = obtenerConexion().prepareStatement(sql)) {
+        try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.executeUpdate();
         } catch (SQLException e) {
-            Log.escribirLog("No se pudo crear la tabla " + nombreTabla);
+            Log.escribirLog("No se pudo crear la tabla " + nombreTabla,e.getMessage());
         }
     }
     
-    public static void inicializar(){
+    public static boolean inicializar(){
+        if (obtenerConexion() == null){
+            return false;
+        }
         String tbUsuario = "CREATE TABLE IF NOT EXISTS Usuario("
                 + "idUsuario INT AUTO_INCREMENT,"
-                + "user VARCHAR(50),"
-                + "pass VARCHAR(60),"
+                + "nombre VARCHAR(50),"
+                + "contra VARCHAR(60),"
                 + "tipoUsuario VARCHAR(20),"
                 + "PRIMARY KEY (idUsuario)"
                 + ");";
@@ -56,6 +59,7 @@ public class ConexionBD {
                 + "numero INT NOT NULL,"
                 + "titulo VARCHAR(50) NOT NULL UNIQUE,"
                 + "clasificacion VARCHAR(50) NOT NULL,"
+                + "tema VARCHAR(20) NOT NULL,"
                 + "PRIMARY KEY(numero)"
                 + ");";
         String tbAutor = "CREATE TABLE IF NOT EXISTS Autor("
@@ -85,5 +89,6 @@ public class ConexionBD {
         crearTabla(tbLibro, "Libro");
         crearTabla(tbPrestamo, "Prestamo");
         crearTabla(tbAutorLibro, "Autor_Libro");
+        return true;
     }
 }

@@ -3,21 +3,17 @@
  */
 package com.example.Biblioteca;
 
-import logica.ControladorVentanas;
-import modelo.Autor;
-import modelo.Libro;
-import modelo.Tema;
-import persistencia.ConexionBD;
-import persistencia.LibroDAO;
+import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import logica.ControladorPrincipal;
+import vista.VentanaCliente;
 
 public class App {
 
     public static void main(String[] args) {
-        ConexionBD.obtenerConexion();
-        ConexionBD.inicializar();
-        //ControladorVentanas.iniciar();
-        Libro l1 = new Libro("harry potter y la paja eterna", "Porno", 69, Tema.COMEDIA, new Autor("mipadre",37001));
-        LibroDAO.insertarLibro(l1);
- 
+        //ControladorPrincipal.iniciar();
+        //FlatArcOrangeIJTheme.setup();
+        VentanaCliente v = new VentanaCliente();
+        v.setVisible(true);
+        v.setLocationRelativeTo(null);
     }
 }

@@ -3,6 +3,7 @@ package persistencia;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.Autor;
 import util.Log;
@@ -15,23 +16,32 @@ public class AutorDAO {
         this.conexion = ConexionBD.obtenerConexion();
     }
  
-    public void insertarAutor(Autor autor){
-        String sql = "INSERT INTO Autor(pseudonimo) VALUES (?,?)";
+    public boolean insertarAutor(Autor autor){
+        if (buscarAutor(autor) != null){
+            return false;
+        }
+        String sql = "INSERT INTO Autor(pseudonimo) VALUES (?)";
         try(PreparedStatement ps = conexion.prepareStatement(sql)){
-            ps.setString(1, autor.toString());
+            ps.setString(1, autor.getPseudonimo());
+            return true;
         }catch(SQLException e){
-            Log.escribirLog("No se pudo insertar Autor: " + autor.toString());
+            Log.escribirLog("No se pudo insertar Autor: " + autor.toString(),e.getMessage());
+            return false;
         }
     }
     
-    public void buscarAutor(Autor autor){
-        String sql = "SELECT * FROM Autor WHERE nombre = ?";
+    public Autor buscarAutor(Autor autor){
+        String sql = "SELECT nombre FROM Autor WHERE nombre = ?";
         try(PreparedStatement ps = conexion.prepareStatement(sql)){
-            
+            ps.setString(1,autor.getPseudonimo());
+            try (ResultSet rs = ps.executeQuery()){
+                while(rs.next()){
+                    return new Autor(rs.getString("nombre"));
+                }
+            }
         }catch(SQLException e){
-            Log.escribirLog("No se pudo encontrar el autor : " + autor.toString()+
-                    "\n" + e.getMessage());
-            
+            Log.escribirLog("No se pudo encontrar el autor : " + autor.toString(),e.getMessage());
         }
+        return null;
     }
 }

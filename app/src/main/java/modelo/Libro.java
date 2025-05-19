@@ -7,14 +7,12 @@ public class Libro {
     private String clasificacion;
     private int numero;
     private Tema consiste_en;
-    private Autor creador;
 
-    public Libro(String titulo, String clasificacion, int numero, Tema consiste_en, Autor creador) {
+    public Libro(int numero,String titulo,String clasificacion,Tema consiste_en) {
         this.titulo = titulo;
         this.clasificacion = clasificacion;
         this.numero = numero;
         this.consiste_en = consiste_en;
-        this.creador = creador;
     }
 
     public String getTitulo() {
@@ -29,12 +27,16 @@ public class Libro {
         return numero;
     }
 
+    public Tema getConsiste_en() {
+        return consiste_en;
+    }
+
+    
     @Override
     public String toString() {
         return "Libro{" + "titulo=" + titulo + ", clasificacion=" 
                 + clasificacion + ", numero=" + numero 
-                + ", consiste_en=" + consiste_en 
-                + ", creador=" + creador + '}';
+                + ", consiste_en=" + consiste_en;
     }
     
 }

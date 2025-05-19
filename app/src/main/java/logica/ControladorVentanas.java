@@ -1,8 +1,6 @@
 
 package logica;
 
-import com.formdev.flatlaf.intellijthemes.FlatVuesionIJTheme;
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import modelo.*;
 import vista.VentanaBibliotecario;
@@ -16,8 +14,7 @@ public class ControladorVentanas {
     private static VentanaBibliotecario vb;
     private static VentanaCliente vc;
     
-    public static void iniciar(){
-        FlatVuesionIJTheme.setup();
+    public static void iniciarLogin(){
         SwingUtilities.invokeLater(() ->{
             VentanaInicioSesion v1 = new VentanaInicioSesion();
             v1.setVisible(true);
@@ -25,12 +22,13 @@ public class ControladorVentanas {
         });
     }
     
-    public static void cambiarVentana(Usuario usuario){
+    public static void iniciarTipoUsuario(Usuario usuario){
         if(usuario.getTipoUsuario() == TipoUsuario.CLIENTE){
             v1.dispose();
             vc = new VentanaCliente();
             vc.setVisible(true);
         }else{
+            v1.dispose();
             vb = new VentanaBibliotecario();
             vb.setVisible(true);
         }

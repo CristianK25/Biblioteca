@@ -1,0 +1,433 @@
+2025-05-17 00:29:00.141840-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:29:00.182253-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-17 00:31:52.234264-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "TRUNCATE [*]Libro"; se esperaba "TABLE"
+Syntax error in SQL statement "TRUNCATE [*]Libro"; expected "TABLE"; SQL statement:
+TRUNCATE Libro [42001-232]
+2025-05-17 00:31:58.418342-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Imposible truncar "PUBLIC.LIBRO"
+Cannot truncate "PUBLIC.LIBRO"; SQL statement:
+TRUNCATE TABLE Libro [90106-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.ddl.TruncateTable.update(TruncateTable.java:42)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:139)
+	at org.h2.command.Command.executeUpdate(Command.java:304)
+	at org.h2.command.Command.executeUpdate(Command.java:248)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1344)
+	at org.h2.server.web.WebApp.query(WebApp.java:1142)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1108)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1095)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-05-17 00:32:19.197742-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at com.example.Biblioteca.App.main(App.java:14)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 13 more
+2025-05-17 00:32:19.215695-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at persistencia.ConexionBD.crearTabla(ConexionBD.java:40)
+	at persistencia.ConexionBD.inicializar(ConexionBD.java:84)
+	at com.example.Biblioteca.App.main(App.java:15)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2025-05-17 00:33:27.384238-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at com.example.Biblioteca.App.main(App.java:14)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 13 more
+2025-05-17 00:35:09.219516-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at com.example.Biblioteca.App.main(App.java:14)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 13 more
+2025-05-17 00:35:09.237468-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at persistencia.ConexionBD.inicializar(ConexionBD.java:48)
+	at com.example.Biblioteca.App.main(App.java:15)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 14 more
+2025-05-17 00:40:49.408159-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at persistencia.ConexionBD.inicializar(ConexionBD.java:48)
+	at com.example.Biblioteca.App.main(App.java:14)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 14 more
+2025-05-17 00:41:28.172605-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at persistencia.ConexionBD.crearTabla(ConexionBD.java:40)
+	at persistencia.ConexionBD.inicializar(ConexionBD.java:85)
+	at com.example.Biblioteca.App.main(App.java:14)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2025-05-17 00:43:31.120556-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at com.example.Biblioteca.App.main(App.java:15)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 19 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 13 more
+2025-05-17 00:43:31.137511-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+	at persistencia.ConexionBD.obtenerConexion(ConexionBD.java:20)
+	at persistencia.ConexionBD.crearTabla(ConexionBD.java:40)
+	at persistencia.ConexionBD.inicializar(ConexionBD.java:85)
+	at com.example.Biblioteca.App.main(App.java:16)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]" [50000-230]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db [2.3.230/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2025-05-17 00:45:22.060003-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:45:22.091917-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-17 00:49:36.700394-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:49:36.729320-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-17 00:49:49.221027-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:49:49.250917-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-17 00:50:16.204546-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:50:16.234466-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-17 00:50:23.964377-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:50:23.995267-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-17 00:50:29.620209-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+2025-05-17 00:50:29.650684-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+2025-05-18 01:28:58.330339Z jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-05-18 01:29:09.435404Z jdbc[3]: exception
+java.sql.SQLClientInfoException: Client info name 'ApplicationName' not supported.
+	at org.h2.jdbc.JdbcConnection.setClientInfo(JdbcConnection.java:1624)
+	at com.intellij.database.remote.jdbc.impl.RemoteConnectionImpl.setClientInfo(RemoteConnectionImpl.java:469)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
+	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)

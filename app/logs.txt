@@ -5,3 +5,90 @@
 [2025-05-14 10:34] No se pudo obtener la conexion a la base de datos
 [2025-05-14 10:37] No se pudo insertar Autor: Libro{titulo=harry potter y la paja eterna, clasificacion=Porno, numero=69, consiste_en=COMEDIA, creador=Autor{pseudonimo=mipadre, librosEscritos=[]}}
 [2025-05-14 10:43] No se pudo insertar Autor: Libro{titulo=harry potter y la paja eterna, clasificacion=Porno, numero=69, consiste_en=COMEDIA, creador=Autor{pseudonimo=mipadre, librosEscritos=[]}}
+[2025-05-17 00:29] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:29] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+[2025-05-17 00:32] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:32] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:33] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:35] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:35] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:40] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:41] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:43] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:43] No se pudo obtener la conexion a la base de datos
+La base de datos puede que ya esté siendo utilizada: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Soluciones Posibles: cierre todas las otras conexiones; use el modo server
+Database may be already in use: "C:/Users/windows/Documents/NetBeansProjects/Biblioteca/app/Base_de_datos/db.mv.db". Possible solutions: close all other connection(s); use the server mode [90020-230]
+[2025-05-17 00:45] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:45] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+[2025-05-17 00:49] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:49] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+[2025-05-17 00:49] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:49] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+[2025-05-17 00:49] No se pudo insertar Libro: Libro{titulo=harry potter, clasificacion=Porno, numero=12304, consiste_en=COMEDIA
+Violación de indice de Unicidad ó Clave primaria: "PRIMARY KEY ON PUBLIC.LIBRO(NUMERO) ( /* key:0 */ 12304, 'harry potter y la paja eterna', 'Porno', 'COMEDIA')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.LIBRO(NUMERO) ( /* key:0 */ 12304, 'harry potter y la paja eterna', 'Porno', 'COMEDIA')"; SQL statement:
+INSERT INTO Libro(numero,titulo,clasificacion,tema) VALUES (?,?,?,?) [23505-230]
+[2025-05-17 00:50] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:50] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+[2025-05-17 00:50] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:50] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]
+[2025-05-17 00:50] No se pudo crear la tabla Usuario
+Error de Sintaxis en sentencia SQL "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,[*]user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario));"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS Usuario(idUsuario INT AUTO_INCREMENT,user VARCHAR(50),pass VARCHAR(60),tipoUsuario VARCHAR(20),PRIMARY KEY (idUsuario)); [42001-230]
+[2025-05-17 00:50] No se pudo crear la tabla Prestamo
+Tabla "USUARIO" no encontrada
+Table "USUARIO" not found; SQL statement:
+CREATE TABLE IF NOT EXISTS Prestamo(idPrestamo INT AUTO_INCREMENT,dia_prestamo DATE NOT NULL,dia_devolucion DATE,numeroLibro INT,idUsuario INT,PRIMARY KEY (idPrestamo),FOREIGN KEY (numeroLibro) REFERENCES Libro(numero),FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)) [42102-230]

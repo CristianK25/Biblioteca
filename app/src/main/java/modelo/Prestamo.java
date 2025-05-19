@@ -17,7 +17,7 @@ public class Prestamo {
         this.dia_prestamo = dia_prestamo;
         this.dia_devolucion = dia_devolucion;
         this.socio = socio;
-        this.prestado = new ArrayList();
+        this.prestado = new ArrayList<>();
     }
     
     public void agregarLibroPrestado(Libro l){
