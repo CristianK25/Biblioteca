@@ -3,6 +3,8 @@ package vista;
 
 import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import javax.swing.SwingUtilities;
+import modelo.Usuario;
+import persistencia.UsuarioDAO;
 
 
 public class VentanaInicioSesion extends javax.swing.JFrame {
@@ -132,7 +134,10 @@ public class VentanaInicioSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        // TODO add your handling code here:
+        String nombre = this.txtUsuario.getText();
+        String contra = String.valueOf(this.pswContrasenia.getPassword());
+        Usuario usuario = new Usuario(nombre,contra);
+        if(UsuarioDAO.registrarUsuario(usuario))
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
 

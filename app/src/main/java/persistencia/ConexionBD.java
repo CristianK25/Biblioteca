@@ -4,7 +4,10 @@ package persistencia;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
 import util.Log;
 
 
@@ -90,5 +93,53 @@ public class ConexionBD {
         crearTabla(tbPrestamo, "Prestamo");
         crearTabla(tbAutorLibro, "Autor_Libro");
         return true;
+    }
+    private static void iniciarLibros(Connection conn){
+        if (!estaVacia(conn)) return;
+        Object[][] libros = {
+        {1, "Don Quijote de la Mancha", "Literatura clásica"},
+        {2, "Cien años de soledad", "Realismo mágico"},
+        {3, "Fundación", "Ciencia ficción"},
+        {4, "El arte de la guerra", null}, // Libro sin clasificación
+        {5, "El señor de los anillos", "Fantasía"},
+        {6, "Romeo y Julieta", "Drama"},
+        {7, "Veinte poemas de amor y una canción desesperada", "Poesía"},
+        {8, "It", "Terror"},
+        {9, "Breves respuestas a las grandes preguntas", "Ciencia"},
+        {10, "El poder del ahora", "Autoayuda"}
+        };
+        String sql = "INSERT INTO libro(numero,titulo,clasificacion) VALUES (?,?,?);";
+        try(PreparedStatement ps = conn.prepareStatement(sql)){
+             conn.setAutoCommit(false);
+        
+        for (Object[] libro : libros) {
+            ps.setInt(1, (Integer) libro[0]);
+            ps.setString(2, (String) libro[1]);
+            
+            if (libro[2] != null) {
+                ps.setString(3, (String) libro[2]);
+            } else {
+                ps.setNull(3, Types.VARCHAR);
+            }
+            
+            ps.addBatch();
+        }
+        ps.executeBatch();
+        conn.commit();
+        }catch(SQLException e){
+            System.out.println("No se pudieron ingresar los libros");
+        }
+    }
+    public static boolean estaVacia(Connection conn){
+        try (Statement checkStmt = conn.createStatement();
+            ResultSet rs = checkStmt.executeQuery("SELECT COUNT(*) FROM libro")) {
+           if (rs.next() && rs.getInt(1) > 0) {
+               return true; // Ya hay datos, no insertar
+           }
+        } catch (SQLException e) {
+            System.out.println("Error al verificar libros existentes");
+            return false;
+        }
+        return false;
     }
 }
