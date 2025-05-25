@@ -19,7 +19,7 @@ public class ConexionBD {
             try{
                 conexion = DriverManager.getConnection(URL, USER, PASS);
             }catch(SQLException e){
-                Log.escribirLog("No se pudo obtener la conexion a la base de datos",e.getMessage());
+                Log.error("No se pudo obtener la conexion a la base de datos",e);
             }
         }
         return conexion;
@@ -32,7 +32,7 @@ public class ConexionBD {
                 conexion = null;
             }
         }catch(SQLException e){
-            Log.escribirLog("No se pudo cerrar la conexion a la base de datos",e.getMessage());
+            Log.error("No se pudo cerrar la conexion a la base de datos",e);
         }
     }
     
@@ -40,7 +40,7 @@ public class ConexionBD {
         try (PreparedStatement ps = conexion.prepareStatement(sql)) {
             ps.executeUpdate();
         } catch (SQLException e) {
-            Log.escribirLog("No se pudo crear la tabla " + nombreTabla,e.getMessage());
+            Log.error("No se pudo crear la tabla " + nombreTabla,e);
         }
     }
     

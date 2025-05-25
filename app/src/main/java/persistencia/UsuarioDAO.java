@@ -25,7 +25,7 @@ public class UsuarioDAO {
                 }
             }
         }catch(SQLException e){
-            Log.escribirLog("No se pudo buscar usuario: "+ usuario.toString(), e.getMessage());
+            Log.error("No se pudo buscar usuario: "+ usuario.toString(), e);
         }
         return false;
     }
@@ -45,7 +45,7 @@ public class UsuarioDAO {
             ps.executeUpdate();
             return true;
         }catch(SQLException e){
-            Log.escribirLog("No se pudo registrar el usuario",e.getMessage());
+            Log.error("No se pudo registrar el usuario",e);
         }
         return false;
     }

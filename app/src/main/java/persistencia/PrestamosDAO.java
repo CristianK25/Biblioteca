@@ -20,7 +20,7 @@ public class PrestamosDAO {
         try(PreparedStatement ps = conexion.prepareStatement(sql)){
             ps.setString(1, prestamo.toString());
         }catch(SQLException e){
-            Log.escribirLog("No se pudo insertar Autor: " + prestamo.toString(),e.getMessage());
+            Log.error("No se pudo insertar Autor: " + prestamo.toString(),e);
         }
     }
 }

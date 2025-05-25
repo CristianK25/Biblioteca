@@ -36,8 +36,6 @@ public class VentanaCliente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBotones.setBackground(new java.awt.Color(0, 153, 255));
-
         jButton1.setText("jButton1");
 
         jButton2.setText("jButton1");

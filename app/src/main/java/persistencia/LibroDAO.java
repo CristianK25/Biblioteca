@@ -24,7 +24,7 @@ public class LibroDAO {
             ps.executeUpdate();
             return true;
         }catch(SQLException e){
-            Log.escribirLog("No se pudo insertar Libro: " + libro.toString(),e.getMessage());
+            Log.error("No se pudo insertar Libro: " + libro.toString(),e);
             return false;
         }
     }
@@ -43,7 +43,7 @@ public class LibroDAO {
                 }
             }
         }catch(SQLException e){
-            Log.escribirLog("No se pudo buscar el libro "+ libro.toString(),e.getMessage());
+            Log.error("No se pudo buscar el libro "+ libro.toString(),e);
         }
         return null;
     }

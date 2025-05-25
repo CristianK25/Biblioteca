@@ -1,6 +1,7 @@
 
 package logica;
 
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDeepOceanIJTheme;
 import javax.swing.SwingUtilities;
 import modelo.*;
 import vista.VentanaBibliotecario;
@@ -15,8 +16,9 @@ public class ControladorVentanas {
     private static VentanaCliente vc;
     
     public static void iniciarLogin(){
+        FlatMaterialDeepOceanIJTheme.setup(); //Tema del inicio de usuario
         SwingUtilities.invokeLater(() ->{
-            VentanaInicioSesion v1 = new VentanaInicioSesion();
+            v1 = new VentanaInicioSesion();  
             v1.setVisible(true);
             v1.setLocationRelativeTo(null);
         });

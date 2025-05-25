@@ -1,10 +1,6 @@
 
 package vista;
 
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
-import javax.swing.SwingUtilities;
-
-
 public class VentanaInicioSesion extends javax.swing.JFrame {
 
     /** Creates new form VentanaInicioSesion */
@@ -119,11 +115,7 @@ public class VentanaInicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        this.dispose();
-        FlatMaterialLighterIJTheme.setup();
-        VentanaCliente cliente = new VentanaCliente();
-        SwingUtilities.updateComponentTreeUI(cliente);
-        cliente.setVisible(true);
+        
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
 

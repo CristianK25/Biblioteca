@@ -25,7 +25,7 @@ public class AutorDAO {
             ps.setString(1, autor.getPseudonimo());
             return true;
         }catch(SQLException e){
-            Log.escribirLog("No se pudo insertar Autor: " + autor.toString(),e.getMessage());
+            Log.error("No se pudo insertar Autor: " + autor.toString(),e);
             return false;
         }
     }
@@ -40,7 +40,7 @@ public class AutorDAO {
                 }
             }
         }catch(SQLException e){
-            Log.escribirLog("No se pudo encontrar el autor : " + autor.toString(),e.getMessage());
+            Log.error("No se pudo encontrar el autor : " + autor.toString(),e);
         }
         return null;
     }

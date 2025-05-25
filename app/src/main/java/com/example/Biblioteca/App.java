@@ -3,18 +3,12 @@
  */
 package com.example.Biblioteca;
 
-import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialDeepOceanIJTheme;
 import logica.ControladorPrincipal;
-import vista.VentanaCliente;
-import vista.VentanaInicioSesion;
+import util.Log;
 
 public class App {
-
+   
     public static void main(String[] args) {
-        FlatMaterialDeepOceanIJTheme.setup();
-        //ControladorPrincipal.iniciar();
-        VentanaInicioSesion vl = new VentanaInicioSesion();
-        vl.setVisible(true);
-        vl.setLocationRelativeTo(null);
+       ControladorPrincipal.iniciar();
     }
 }
