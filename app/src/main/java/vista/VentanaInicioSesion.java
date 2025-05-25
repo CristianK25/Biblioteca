@@ -1,6 +1,12 @@
 
 package vista;
 
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
+import javax.swing.SwingUtilities;
+import modelo.Usuario;
+import persistencia.UsuarioDAO;
+
+
 public class VentanaInicioSesion extends javax.swing.JFrame {
 
     /** Creates new form VentanaInicioSesion */
@@ -58,6 +64,11 @@ public class VentanaInicioSesion extends javax.swing.JFrame {
 
         btnRegistrarse.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarseActionPerformed(evt);
+            }
+        });
 
         pswContrasenia.setText("jPasswordField1");
 
@@ -117,6 +128,10 @@ public class VentanaInicioSesion extends javax.swing.JFrame {
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
+
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
 
 
